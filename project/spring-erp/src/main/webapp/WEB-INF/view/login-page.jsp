@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link href="<c:url value="/resources/myCss.css" />" rel="stylesheet">
     </head>
     <body>
         <!-- Login Form -->

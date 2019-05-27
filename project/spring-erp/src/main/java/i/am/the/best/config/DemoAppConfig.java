@@ -14,6 +14,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
@@ -23,13 +25,21 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableTransactionManagement
 @ComponentScan(basePackages="i.am.the.best")
 @PropertySource("classpath:mydb.properties")
-public class DemoAppConfig {
+public class DemoAppConfig implements WebMvcConfigurer{
 
 	@Autowired
 	private Environment env;
 	
 	private Logger logger = Logger.getLogger(getClass().getName());
 	
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		
+		registry.addResourceHandler("/resources/**")
+				.addResourceLocations("/resources/");
+	}
+
 	@Bean
 	public ViewResolver viewResolver()
 	{
