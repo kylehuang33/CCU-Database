@@ -5,14 +5,14 @@
 <html>
 
 <head>
-	<title>luv2code Company Home Page</title>
+	<title>Company Home Page</title>
 </head>
 
 <body>
-	<h2>luv2code Company Home Page</h2>
+	<h2>Company Home Page</h2>
 	<hr>
 	<p>
-	Welcome to the luv2code company home page!
+	Welcome to the our company home page!
 	</p>
 	
 	<hr>
