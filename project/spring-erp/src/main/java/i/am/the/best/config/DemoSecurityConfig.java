@@ -17,7 +17,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	private DataSource securityDataSource;
 	
 	@Autowired
-	private CustomerSuccessHandler customerSuccessHandler;
+	private CustomSuccessHandler customSuccessHandler;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -35,6 +35,7 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.loginPage("/showMyLoginPage")
 				.loginProcessingUrl("/authenticateTheUser")
+				.successHandler(customSuccessHandler)
 				.permitAll()
 			.and()
 				.logout()
